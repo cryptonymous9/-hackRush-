@@ -1,0 +1,41 @@
+{% load static  %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prescription</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <form method="post" action="prescribe">
+            <input id="number" type="text" hidden/>
+            <div class="form-group" id="transition_container"><br>
+                <center><h3>Prescription</h3></center><br><br>
+                <div class="form-inline mb-3">
+                    <input class="form-control mb-3" type="text" name="fb_id" placeholder="Contact">
+                    <input class="form-control mb-3" type="text" name="name" placeholder="Name of Patient">
+                </div>
+                <div id="tablet_0" name="0" class="form-inline mb-3" align="center">
+                    <input class="form-control" type="text" name="tablet0" placeholder="Tablet/Drug name">
+                    <span class="ml-2 mr-2"> - </span>
+                    <input class="form-control" type="text" name="dosage0" placeholder="Dosage"> 
+                    <span class="ml-2 mr-2"> - </span>
+                    <input class="form-control" type="text" name="quantity0" placeholder="Quantity">
+                </div>
+            </div>
+            <center><button type="button" class="btn btn-primary" onclick="add_tablet()">Add Tablet</button> </center>
+            <br><br>
+            <hr>
+            <button type="submit" class="form-control btn btn-success">Submit</button> 
+        </form>
+    </div>
+    <script src="{% static 'scripti.js' %}"></script>
+    <script>
+        var req = location.search;
+        document.getElementById('number').setAttribute('value',req);
+    </script>
+</body>
+</html>
